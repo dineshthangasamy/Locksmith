@@ -64,8 +64,9 @@ public extension SecureStorable {
     var secureStorableBaseStoragePropertyDictionary: [String: Any] {
         let dictionary = [
             String(kSecAttrAccessGroup): accessGroup,
+            String(kSecAttrSynchronizable): kCFBooleanTrue!,
             String(kSecAttrAccessible): accessible?.rawValue
-        ]
+        ] as [String : Any]
         
         return Dictionary(withoutOptionalValues: dictionary)
     }
